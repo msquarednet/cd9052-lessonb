@@ -1,13 +1,17 @@
-var Stats = {
-    generate: function(arr) {
-        var stats = {};
-        for (var i=0; i< arr.length; i++) {
-            var key = arr[i];
-            if (!(key in stats)) {stats[key]=0;}
-            stats[key] = stats[key]+1;
-        }
-    }
-}
-describe("Stats"function() {
-    //
+
+/* globals describe it expect */
+describe("Stats", function(){
+    it("exists", function(){
+        expect(Stats).toBeDefined();
+    });
+    
+    describe("Stats for [1,1,3,7", function(){
+        it("should be {1:2, 3:1, 7:1}", function(){
+           expect(Stats.generate([1,1,3,7])).toEqual({
+               1: 2,
+               3: 1,
+               7: 1
+           });
+        })
+    });
 });
